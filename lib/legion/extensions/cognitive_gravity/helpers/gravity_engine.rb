@@ -8,7 +8,7 @@ module Legion
           attr_reader :attractors, :orbiting_thoughts, :capture_events, :escape_events
 
           def initialize
-            @attractors       = {}
+            @attractors = {}
             @orbiting_thoughts = {}
             @capture_events   = []
             @escape_events    = []
@@ -110,23 +110,22 @@ module Legion
           end
 
           def gravity_report
-            active    = @attractors.values.reject(&:collapsed?)
-            collapsed = @attractors.values.select(&:collapsed?)
+            collapsed, active = @attractors.values.partition(&:collapsed?)
             supermass = @attractors.values.select(&:supermassive?)
             captured  = @orbiting_thoughts.values.select(&:captured?)
             escaped   = @orbiting_thoughts.values.select(&:escaped?)
 
             {
-              total_attractors:    @attractors.size,
-              active_attractors:   active.size,
+              total_attractors:     @attractors.size,
+              active_attractors:    active.size,
               collapsed_attractors: collapsed.size,
-              supermassive_count:  supermass.size,
-              total_orbiting:      @orbiting_thoughts.size,
-              captured_count:      captured.size,
-              escaped_count:       escaped.size,
-              total_captures:      @capture_events.size,
-              total_escapes:       @escape_events.size,
-              strongest:           strongest_attractors(limit: 3).map(&:to_h)
+              supermassive_count:   supermass.size,
+              total_orbiting:       @orbiting_thoughts.size,
+              captured_count:       captured.size,
+              escaped_count:        escaped.size,
+              total_captures:       @capture_events.size,
+              total_escapes:        @escape_events.size,
+              strongest:            strongest_attractors(limit: 3).map(&:to_h)
             }
           end
 
@@ -146,12 +145,12 @@ module Legion
 
           def build_event(type, attractor, thought)
             {
-              type:        type,
+              type:         type,
               attractor_id: attractor.id,
-              thought_id:  thought.id,
-              mass:        attractor.mass,
-              distance:    thought.orbital_distance,
-              at:          Time.now.utc
+              thought_id:   thought.id,
+              mass:         attractor.mass,
+              distance:     thought.orbital_distance,
+              at:           Time.now.utc
             }
           end
         end

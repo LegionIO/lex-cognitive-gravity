@@ -28,28 +28,28 @@ module Legion
           ].freeze
 
           MASS_LABELS = {
-            (0.0..0.1)  => :collapsing,
-            (0.1..0.5)  => :weak,
-            (0.5..1.0)  => :nascent,
-            (1.0..2.0)  => :moderate,
-            (2.0..3.0)  => :strong,
+            (0.0..0.1)             => :collapsing,
+            (0.1..0.5)             => :weak,
+            (0.5..1.0)             => :nascent,
+            (1.0..2.0)             => :moderate,
+            (2.0..3.0)             => :strong,
             (3.0..Float::INFINITY) => :supermassive
           }.freeze
 
           DENSITY_LABELS = {
-            (0..0)    => :empty,
-            (1..2)    => :sparse,
-            (3..5)    => :light,
-            (6..10)   => :moderate,
-            (11..20)  => :dense,
+            (0..0)                => :empty,
+            (1..2)                => :sparse,
+            (3..5)                => :light,
+            (6..10)               => :moderate,
+            (11..20)              => :dense,
             (21..Float::INFINITY) => :crowded
           }.freeze
 
           ORBIT_LABELS = {
-            (0.0..0.2)  => :captured,
-            (0.2..0.5)  => :tight,
-            (0.5..1.0)  => :stable,
-            (1.0..1.5)  => :loose,
+            (0.0..0.2)             => :captured,
+            (0.2..0.5)             => :tight,
+            (0.5..1.0)             => :stable,
+            (1.0..1.5)             => :loose,
             (1.5..Float::INFINITY) => :escaped
           }.freeze
 

@@ -137,7 +137,7 @@ RSpec.describe Legion::Extensions::CognitiveGravity::Helpers::Attractor do
     it 'returns a hash with expected keys' do
       h = attractor.to_h
       expect(h).to include(:id, :content, :domain, :mass, :pull_radius, :decay_rate,
-                            :reinforcement_count, :collapsed, :supermassive, :mass_label, :created_at)
+                           :reinforcement_count, :collapsed, :supermassive, :mass_label, :created_at)
     end
   end
 end

@@ -97,7 +97,7 @@ RSpec.describe Legion::Extensions::CognitiveGravity::Helpers::OrbitingThought do
     it 'returns a hash with expected keys' do
       h = thought.to_h
       expect(h).to include(:id, :content, :attractor_id, :orbital_distance, :velocity,
-                            :captured, :escaped, :orbit_label, :created_at)
+                           :captured, :escaped, :orbit_label, :created_at)
     end
   end
 end
